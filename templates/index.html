@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperStore</title>
+    <!-- <link rel="stylesheet" href="../static/css/main.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family='Inconsolata', monospace;">
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+
+<body>
+    <div style="color:rgb(2, 5, 0);">
+        <form action="{{ url_for ('predict') }}" method="post">
+            <h2> SuperStore</h2>
+            <h2> Sales Predictions</h2>
+            {% for item,values in context.items() %}
+            <h3 style="margin-bottom: 0px;">{{item}}</h3><select name='{{item}}' id="{{item}}" required="required">
+                {% for i in values %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+            {% endfor %}
+            {% for column_i in column %}
+            <!-- <span class="input-group-btn" style="width:0px;"></span> -->
+            <div>
+                <h3 style="margin-bottom: 0px;">{{column_i}}</h3>
+                <input id="{{column_i}}" name="{{column_i}}" required="required"
+                    style="padding-top:5px;border-radius:10px;text-align:center;">
+                <!-- <span class="input-group-btn" style="width:0px;"></span> -->
+                <!-- <span>{{column_i}}</span> -->
+            </div>
+            {% endfor %}
+            <br><button id="sub" type="submit ">Check the Total Estimated Sales Generated
+                <br>
+        </form>
+
+    </div>
+</body>
+
+</html>
