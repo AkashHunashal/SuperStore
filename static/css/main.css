@@ -1,6 +1,6 @@
 
     body {
-        background-color: rgb(52, 199, 235);
+        background-color: rgb(63, 64, 64);
         text-align: center;
         padding: 0px;
     }
@@ -15,5 +15,6 @@ button {
   border-radius:5px;
   border-color: black;
   block-size: fit-content;
-  background-color:rgb(252, 252, 158);    
+  background-color:rgb(252, 252, 158);
+  cursor: pointer;   
 }

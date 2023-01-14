@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(52, 199, 235);
+  background-color: rgb(63,64,64);
   text-align: center;
   padding: 0px;
   /* background-image: '../static/Images/mercedes_logo.jpg';
@@ -20,7 +20,8 @@ button {
   border-radius:5px;
   border-color: black;
   block-size: fit-content;
-  background-color:beige;
+  background-color:rgb(223, 180, 37);
+  cursor: pointer;
   /* --bs-btn-bg: var(--bd-violet);
   --bs-btn-border-color: var(--bd-violet);
   --bs-btn-border-radius: .5rem;
