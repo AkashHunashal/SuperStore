@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <div style="color:rgb(2, 5, 0);">
+    <div style="color:rgb(217, 224, 212);">
         <form action="{{ url_for ('predict') }}" method="post">
-            <h2> SuperStore</h2>
-            <h2> Sales Predictions</h2>
+            <h2 style="color:rgb(222, 91, 20);"> SuperStore</h2>
+            <h2 style="color:rgb(123, 235, 233);"> Sales Predictions</h2>
             {% for item,values in context.items() %}
             <h3 style="margin-bottom: 0px;">{{item}}</h3><select name='{{item}}' id="{{item}}" required="required">
                 {% for i in values %}
