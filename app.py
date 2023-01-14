@@ -55,7 +55,7 @@ def Home():
                     Sub_Category.append(category)
                 else:
                     Product_Name.append(category)
-    context = {
+    option = {
         'Product Name': Product_Name,
         'Category': Category,
         'Sub-Category': Sub_Category,
@@ -66,8 +66,8 @@ def Home():
         'Region': Region,
         'Postal Code': Postal_Code,
     }
-    columns = ['Shipping Days', 'Quantity', 'Discount']
-    return render_template('index.html', context=context, column=columns)
+    columns = ['Dispatching Days', 'Quantity', 'Discount']
+    return render_template('index.html', context=option, column=columns)
 
 
 @app.route('/predict', methods=['POST'])
@@ -84,7 +84,7 @@ def predict():
         Product_Name = request.form['Product Name']
         Quantity = int(request.form['Quantity'])
         Discount = float(request.form['Discount'])
-        Shipping_Days = int(request.form['Shipping Days'])
+        Shipping_Days = int(request.form['Dispatching Days'])
         data = pd.DataFrame([[Ship_Mode, Segment, City, State, Postal_Code, Region,
                               Category, Sub_Category, Product_Name, Quantity,
                               Discount, Shipping_Days]], columns=['Ship Mode', 'Segment', 'City', 'State', 'Postal Code', 'Region',
@@ -92,12 +92,11 @@ def predict():
                                                                   'Discount', 'Shipping_days'])
         predictions = testmodel(data)
         print(predictions)
-        if predictions > 0:
-            return render_template('predict.html', prediction_text=f'The Total Sales generated on {Product_Name} is ${round(predictions,2)}')
-        else:
-            return render_template('index.html')
+    if predictions > 0:
+        return render_template('predict.html', prediction_text=f'The Total Sales generated on {Product_Name} is ${round(predictions,2)}')
+    else:
+        return render_template('index.html')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
- 
